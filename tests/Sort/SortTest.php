@@ -1,6 +1,7 @@
 <?php
 
 use SkyStudy\Algorithm\Sort\NativeSort;
+use SkyStudy\Algorithm\Sort\BubbleSort;
 
 class SortTest extends \PHPUnit_Framework_TestCase
 {
@@ -38,6 +39,14 @@ class SortTest extends \PHPUnit_Framework_TestCase
             $source,
             $expected,
             [$nativeSort, 'sort'],
+        ];
+
+        $bubbleSort = new BubbleSort();
+
+        yield [
+            $source,
+            $expected,
+            [$bubbleSort, 'sort'],
         ];
     }
 }
