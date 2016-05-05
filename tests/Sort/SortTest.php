@@ -1,5 +1,7 @@
 <?php
 
+use SkyStudy\Algorithm\Sort\NativeSort;
+
 class SortTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -21,10 +23,21 @@ class SortTest extends \PHPUnit_Framework_TestCase
             return $source;
         };
 
+        $source = [3, 2, 1];
+        $expected = [1, 2, 3];
+
         yield [
-            [3, 2, 1],
-            [1, 2, 3],
+            $source,
+            $expected,
             $sort,
+        ];
+
+        $nativeSort = new NativeSort();
+
+        yield [
+            $source,
+            $expected,
+            [$nativeSort, 'sort'],
         ];
     }
 }
