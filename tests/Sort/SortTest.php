@@ -6,7 +6,6 @@ use SkyStudy\Algorithm\Sort\InsertionReverseSort;
 use SkyStudy\Algorithm\Sort\InsertionSort;
 use SkyStudy\Algorithm\Sort\NativeSort;
 use SkyStudy\Algorithm\Sort\BubbleSort;
-use SkyStudy\Algorithm\Sort\QuickSort;
 
 class SortTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,35 +22,43 @@ class SortTest extends \PHPUnit_Framework_TestCase
 
     public function dataProvider()
     {
-        $sort = function (array $source) {
-            sort($source);
-
-            return $source;
-        };
-
-        $source = [3, 2, 1];
-        $expected = [1, 2, 3];
-
-        yield [
-            $source,
-            $expected,
-            $sort,
-        ];
-
-        foreach ($this->sortDataProvider() as $sortInstance) {
-            yield [
-                $source,
-                $expected,
-                [$sortInstance, 'sort'],
-            ];
+        foreach ($this->sortDataProvider() as $sort) {
+            foreach ($this->sourceExpectedDataProvider() as list($source, $expected)) {
+                yield [
+                    $source,
+                    $expected,
+                    $sort,
+                ];
+            }
         }
     }
 
     private function sortDataProvider()
     {
+        yield function (array $source) {
+            sort($source);
+
+            return $source;
+        };
+
+        foreach ($this->sortInstanceDataProvider() as $sortInstance) {
+            yield [$sortInstance, 'sort'];
+        }
+    }
+
+    private function sortInstanceDataProvider()
+    {
         yield new NativeSort();
         yield new BubbleSort();
         yield new InsertionSort();
         yield new InsertionReverseSort();
+    }
+
+    private function sourceExpectedDataProvider()
+    {
+        yield [
+            [3, 2, 1],
+            [1, 2, 3]
+        ];
     }
 }
