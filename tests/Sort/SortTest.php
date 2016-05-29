@@ -6,6 +6,8 @@ use SkyStudy\Algorithm\Sort\InsertionReverseSort;
 use SkyStudy\Algorithm\Sort\InsertionSort;
 use SkyStudy\Algorithm\Sort\NativeSort;
 use SkyStudy\Algorithm\Sort\BubbleSort;
+use SkyStudy\Algorithm\Sort\BubbleOriginalSort;
+use SkyStudy\Algorithm\Sort\QuickSort;
 
 class SortTest extends \PHPUnit_Framework_TestCase
 {
@@ -50,8 +52,10 @@ class SortTest extends \PHPUnit_Framework_TestCase
     {
         yield new NativeSort();
         yield new BubbleSort();
+        yield new BubbleOriginalSort();
         yield new InsertionSort();
         yield new InsertionReverseSort();
+        yield new QuickSort();
     }
 
     private function sourceExpectedDataProvider()
@@ -64,6 +68,11 @@ class SortTest extends \PHPUnit_Framework_TestCase
         yield [
             [7, 8, 3, 2, 1, 5, 9],
             [1, 2, 3, 5, 7, 8, 9]
+        ];
+
+        yield [
+            range(100, 1),
+            range(1, 100)
         ];
     }
 }
