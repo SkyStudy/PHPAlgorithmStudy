@@ -1,7 +1,10 @@
 <?php
 
+namespace Tests\Sort;
+
 use SkyStudy\Algorithm\Sort\NativeSort;
 use SkyStudy\Algorithm\Sort\BubbleSort;
+use SkyStudy\Algorithm\Sort\QuickSort;
 
 class SortTest extends \PHPUnit_Framework_TestCase
 {
@@ -46,5 +49,6 @@ class SortTest extends \PHPUnit_Framework_TestCase
     {
         yield new NativeSort();
         yield new BubbleSort();
+        yield new QuickSort();
     }
 }
