@@ -6,6 +6,7 @@ use SkyStudy\Algorithm\Sort\InsertionReverseSort;
 use SkyStudy\Algorithm\Sort\InsertionSort;
 use SkyStudy\Algorithm\Sort\NativeSort;
 use SkyStudy\Algorithm\Sort\BubbleSort;
+use SkyStudy\Algorithm\Sort\BubbleOriginalSort;
 
 class SortTest extends \PHPUnit_Framework_TestCase
 {
@@ -50,6 +51,7 @@ class SortTest extends \PHPUnit_Framework_TestCase
     {
         yield new NativeSort();
         yield new BubbleSort();
+        yield new BubbleOriginalSort();
         yield new InsertionSort();
         yield new InsertionReverseSort();
     }
