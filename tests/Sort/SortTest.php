@@ -33,20 +33,18 @@ class SortTest extends \PHPUnit_Framework_TestCase
             $sort,
         ];
 
-        $nativeSort = new NativeSort();
+        foreach ($this->sortDataProvider() as $sortInstance) {
+            yield [
+                $source,
+                $expected,
+                [$sortInstance, 'sort'],
+            ];
+        }
+    }
 
-        yield [
-            $source,
-            $expected,
-            [$nativeSort, 'sort'],
-        ];
-
-        $bubbleSort = new BubbleSort();
-
-        yield [
-            $source,
-            $expected,
-            [$bubbleSort, 'sort'],
-        ];
+    private function sortDataProvider()
+    {
+        yield new NativeSort();
+        yield new BubbleSort();
     }
 }
