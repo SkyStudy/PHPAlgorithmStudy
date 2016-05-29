@@ -21,7 +21,7 @@ class QuickSort
             while ($array[$j] > $x) --$j;
             if ($i <= $j) {
                 if ($array[$i] > $array[$j]) {
-                    list($array[$i], $array[$j]) = array($array[$j], $array[$i]);
+                    list($array[$i], $array[$j]) = [$array[$j], $array[$i]];
                 }
                 ++$i;
                 --$j;
