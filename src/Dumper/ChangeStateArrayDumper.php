@@ -2,15 +2,10 @@
 
 namespace SkyStudy\Algorithm\Dumper;
 
-class ArrayDumper
+class ChangeStateArrayDumper extends ArrayDumper
 {
     public function dump(array $array)
     {
-        $string = json_encode($array);
-        echo <<<CLI
-
-$string
-
-CLI;
+        parent::dump($array);
     }
 }

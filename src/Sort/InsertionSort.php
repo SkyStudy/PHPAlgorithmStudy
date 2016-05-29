@@ -2,13 +2,13 @@
 
 namespace SkyStudy\Algorithm\Sort;
 
-use SkyStudy\Algorithm\Dumper\ArrayDumper;
+use SkyStudy\Algorithm\Dumper\ChangeStateArrayDumper;
 
 class InsertionSort
 {
     public function sort(array $source)
     {
-        $dumper = new ArrayDumper();
+        $dumper = new ChangeStateArrayDumper();
         
         $count = count($source);
 
