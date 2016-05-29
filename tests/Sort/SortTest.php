@@ -2,6 +2,7 @@
 
 namespace Tests\Sort;
 
+use SkyStudy\Algorithm\Sort\InsertionSort;
 use SkyStudy\Algorithm\Sort\NativeSort;
 use SkyStudy\Algorithm\Sort\BubbleSort;
 use SkyStudy\Algorithm\Sort\QuickSort;
@@ -49,6 +50,6 @@ class SortTest extends \PHPUnit_Framework_TestCase
     {
         yield new NativeSort();
         yield new BubbleSort();
-        yield new QuickSort();
+        yield new InsertionSort();
     }
 }
