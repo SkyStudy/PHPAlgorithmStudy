@@ -2,6 +2,7 @@
 
 namespace Tests\Sort;
 
+use SkyStudy\Algorithm\Sort\InsertionReverseSort;
 use SkyStudy\Algorithm\Sort\InsertionSort;
 use SkyStudy\Algorithm\Sort\NativeSort;
 use SkyStudy\Algorithm\Sort\BubbleSort;
@@ -51,5 +52,6 @@ class SortTest extends \PHPUnit_Framework_TestCase
         yield new NativeSort();
         yield new BubbleSort();
         yield new InsertionSort();
+        yield new InsertionReverseSort();
     }
 }
