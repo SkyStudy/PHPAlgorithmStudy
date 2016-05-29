@@ -8,6 +8,8 @@ class InsertionSort
 {
     public function sort(array $source)
     {
+        $dumper = new ArrayDumper();
+        
         $count = count($source);
 
         for ($i = 1; $i < $count; ++$i) {
@@ -15,13 +17,13 @@ class InsertionSort
 
             $j = $i - 1;
             while ($j >= 0 && $source[$j] > $insert) {
-                ArrayDumper::dump($source);
+                $dumper->dump($source);
                 $source[$j + 1] = $source[$j];
-                ArrayDumper::dump($source);
+                $dumper->dump($source);
                 --$j;
             }
             $source[$j + 1] = $insert;
-            ArrayDumper::dump($source);
+            $dumper->dump($source);
         }
 
         return $source;
