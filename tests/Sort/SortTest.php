@@ -65,5 +65,10 @@ class SortTest extends \PHPUnit_Framework_TestCase
             [7, 8, 3, 2, 1, 5, 9],
             [1, 2, 3, 5, 7, 8, 9]
         ];
+
+        yield [
+            range(100, 1),
+            range(1, 100)
+        ];
     }
 }
